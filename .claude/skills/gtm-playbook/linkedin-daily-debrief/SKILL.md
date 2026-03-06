@@ -110,7 +110,7 @@ This step triggers when the user says "review my seeds", "which seeds should I w
 **Prune — flag stale seeds:**
 - Any seed older than 60 days about a timely topic: "This seed referenced [event] from [date]. Still relevant, or should I archive it?"
 
-3. If user picks a seed to write, hand off to the Post Repurposer workflow (or write directly if voice doc exists)
+3. If user picks a seed to write, write it directly using the voice doc (seeds are original insights, not external content — the Post Repurposer is for remixing other people's content)
 4. After a seed becomes a published post, ask: "How did it perform? [impressions, comments, reposts]" — log the result next to the seed:
 
 ```markdown

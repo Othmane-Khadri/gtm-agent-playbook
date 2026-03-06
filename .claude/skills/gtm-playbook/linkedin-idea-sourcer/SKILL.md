@@ -128,3 +128,4 @@ This step triggers when the user says "which ideas worked", "track my ideas", "w
 |------|------|
 | ICP context (optional) | `docs/icp.md` |
 | Voice doc (optional) | `docs/voice.md` |
+| Idea performance log (feedback) | `docs/idea-performance.md` |

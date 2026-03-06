@@ -153,3 +153,4 @@ This step triggers when the user says "track replies", "which outreach worked", 
 | File | Path |
 |------|------|
 | ICP context (optional) | `docs/icp.md` |
+| Outreach log (feedback) | `docs/outreach-log.md` |

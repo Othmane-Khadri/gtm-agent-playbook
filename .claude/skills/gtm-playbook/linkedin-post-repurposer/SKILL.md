@@ -84,10 +84,12 @@ This step triggers when the user says "how did the repurposed post do", "track t
 
 1. Ask: "How did the post perform? Rough numbers are fine — impressions, comments, reposts."
 
-2. Log the result alongside the rewrite metadata:
+2. Log the result in `docs/repurpose-log.md` (create if doesn't exist):
 
-```
-**Repurposed post: [working title]**
+```markdown
+# Repurpose Performance Log
+
+## [YYYY-MM-DD] — [working title]
 - Source: [original URL or topic]
 - Angle used: [what was changed]
 - Voice patterns: [which templates/hooks applied]
@@ -118,3 +120,4 @@ This step triggers when the user says "how did the repurposed post do", "track t
 | File | Path |
 |------|------|
 | Voice doc (required) | `docs/voice.md` |
+| Repurpose log (feedback) | `docs/repurpose-log.md` |
