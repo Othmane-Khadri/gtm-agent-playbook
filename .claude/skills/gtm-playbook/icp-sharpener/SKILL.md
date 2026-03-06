@@ -124,12 +124,33 @@ After user approves, save to `docs/icp.md`. Create `docs/` if it doesn't exist.
 
 Tell the user: "Your ICP is saved at `docs/icp.md`. The Idea Sourcer and Outreach Packager skills reference this automatically."
 
+### Step 6 — Feedback Loop (Revisit)
+
+This step triggers when the user says "review my ICP", "recalibrate my ICP", or has been using the ICP for 3+ months.
+
+1. Read the existing `docs/icp.md`
+2. Ask these 3 questions (one at a time):
+   - "Which segments actually converted into paying customers? Any surprises?"
+   - "Which disqualifiers held up? Any deals you passed on that you shouldn't have — or took that you shouldn't have?"
+   - "What buying signals actually predicted closed deals? Any new signals you've noticed?"
+3. Compare their answers to the current ICP doc. Highlight what changed.
+4. Update the scoring rubric — re-weight dimensions based on real conversion data
+5. Save the updated `docs/icp.md` with a changelog entry at the bottom:
+
+```markdown
+## Changelog
+- [date]: Recalibrated after [N] months. [1-line summary of what changed]
+```
+
+Tell the user: "ICP updated with real conversion data. Your scoring rubric is now calibrated to actual results, not assumptions."
+
 ## Common Mistakes
 
 - **Asking all 10 questions at once.** Users get overwhelmed and give shallow answers. One at a time.
 - **Accepting vague answers.** "SMBs" is not a segment. Push for specifics: "What size? What industry? What stage?"
 - **Skipping disqualifiers.** Knowing who NOT to sell to is as valuable as knowing who to target.
 - **Making the rubric too complex.** 4 dimensions, 3 levels each. That's it. Don't add more.
+- **Never revisiting.** An ICP from 6 months ago is stale. Run the feedback loop quarterly.
 
 ## Key File Paths
 

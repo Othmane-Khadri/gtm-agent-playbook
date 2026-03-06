@@ -92,12 +92,42 @@ After saving, offer: "Want me to turn any of these into a full post? Just say wh
 
 If they pick one and `docs/voice.md` exists, write the full post in their voice. If no voice doc, suggest: "Run the Voice Builder first for posts in your style — or I can write a generic version now."
 
+### Step 6 — Feedback Loop (Seed Review)
+
+This step triggers when the user says "review my seeds", "which seeds should I write", "prioritize my content", or when `docs/content-seeds.md` has 10+ seeds.
+
+1. Read all seeds from `docs/content-seeds.md`
+2. Analyze the full backlog:
+
+**Prioritize — surface the top 5:**
+- Rank by: contrarian/surprising angle (highest), timeliness (is the topic still relevant?), emotional charge (frustration/excitement beats neutral)
+- Present: "You have [N] seeds banked. Here are the 5 I'd write first:"
+
+**Cluster — find recurring themes:**
+- Group similar seeds (e.g., 4 seeds about remote work, 3 about AI tooling)
+- Present: "You keep coming back to [theme]. This could become a series or a signature topic."
+
+**Prune — flag stale seeds:**
+- Any seed older than 60 days about a timely topic: "This seed referenced [event] from [date]. Still relevant, or should I archive it?"
+
+3. If user picks a seed to write, hand off to the Post Repurposer workflow (or write directly if voice doc exists)
+4. After a seed becomes a published post, ask: "How did it perform? [impressions, comments, reposts]" — log the result next to the seed:
+
+```markdown
+### Seed 3: [Title] ✓ PUBLISHED
+**Published:** [date] | **Impressions:** [N] | **Comments:** [N]
+**What worked:** [1 sentence]
+```
+
+This data improves future seed scoring — seeds with angles similar to high-performers get ranked higher.
+
 ## Common Mistakes
 
 - **Asking all 3 questions at once.** Kills the conversational flow. One at a time.
 - **Over-polishing seeds.** Seeds are raw material, not finished posts. Don't wordsmith them.
 - **Extracting only safe, obvious insights.** The best content comes from Question 3 — the uncomfortable stuff. Push for those angles.
 - **Generating duplicate angles.** If all 3 seeds are "teach" angle, the batch is weak. Force variety.
+- **Letting seeds pile up without reviewing.** 50 unreviewed seeds is a content graveyard. Run the seed review when you hit 10+.
 
 ## Key File Paths
 

@@ -103,12 +103,50 @@ If user gives feedback on tone or approach:
 
 More prospects? "Got more names? Drop them and I'll research the next batch."
 
+### Step 7 — Feedback Loop (Reply Tracking)
+
+This step triggers when the user says "track replies", "which outreach worked", "outreach results", or returns after sending a batch.
+
+1. Ask: "Which messages got replies? For each, tell me: replied / no reply / meeting booked."
+
+2. Log results in `docs/outreach-log.md` (create if doesn't exist):
+
+```markdown
+# Outreach Performance Log
+
+## Batch [date] — [N] prospects
+
+| Prospect | Signal Used | Channel | Result |
+|----------|-------------|---------|--------|
+| [Name] at [Company] | [Hiring for X] | LinkedIn DM | ★ Meeting booked |
+| [Name] at [Company] | [Series B] | Email | ○ Replied, no meeting |
+| [Name] at [Company] | [Product launch] | LinkedIn DM | ✗ No reply |
+
+**Reply rate:** [X]%
+**Best signal:** [Which signal type got replies]
+**Best channel:** [DM vs email]
+```
+
+3. Analyze patterns across all logged batches:
+   - Which signal types get replies? (hiring > funding > product launch?)
+   - Which channel performs better? (DM vs email)
+   - What message length gets responses?
+   - If ICP exists, which scoring dimensions correlate with replies?
+
+4. Apply learnings to next batch:
+   - Prioritize signal types that historically convert
+   - Lead with the better-performing channel
+   - Tell the user: "Based on your last [N] batches, hiring signals get 3x more replies than funding news. I'll prioritize those."
+
+5. After 3+ batches, recommend ICP refinements: "Prospects scoring 8+ on Timing replied 40% of the time. Prospects below 5 never replied. Consider raising your Timing threshold."
+
 ## Common Mistakes
 
 - **Generic openers despite research.** "I noticed your company is doing great things" is not signal-based. Name the specific event.
 - **Too long.** DMs over 5 sentences don't get read. Email over 8 sentences gets skimmed. Shorter is better.
 - **Pitching in the first message.** First touch = earn a conversation, not close a deal.
 - **Processing too many at once.** Quality drops past 5. Batch strictly.
+- **Never tracking what got replies.** Sending outreach without logging results means you never learn which signals convert. Track every batch.
 
 ## Key File Paths
 

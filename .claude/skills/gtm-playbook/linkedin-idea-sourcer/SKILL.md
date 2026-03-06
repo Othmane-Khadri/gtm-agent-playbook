@@ -84,12 +84,43 @@ If user picks one:
 - `docs/voice.md` exists: write in their voice
 - No voice doc: suggest Voice Builder first, or write a generic version
 
+### Step 7 — Feedback Loop (Performance Tracking)
+
+This step triggers when the user says "which ideas worked", "track my ideas", "what performed", or returns after writing posts from previous ideas.
+
+1. Ask: "Which ideas from last time did you actually write? And how did they perform?"
+   - User provides: idea number + impressions/comments/reposts (rough is fine)
+
+2. Log performance in `docs/idea-performance.md` (create if doesn't exist):
+
+```markdown
+# Idea Performance Log
+
+## [YYYY-MM-DD] — Batch [N]
+- Idea 2: "Why your ICP is lying to you" — 4,200 impressions, 47 comments ★ HIT
+- Idea 4: "The hiring signal nobody watches" — 890 impressions, 8 comments
+
+**What worked:** Contrarian angle on familiar topic
+**What flopped:** Too niche, audience didn't relate
+```
+
+3. Analyze patterns across all logged ideas:
+   - Which angles consistently perform? (contrarian? proof? confession?)
+   - Which topics resonate with their audience?
+   - What search patterns surfaced the best ideas?
+
+4. Apply learnings to next idea generation:
+   - Weight future searches toward topic areas that performed
+   - Prioritize the angle types that got engagement
+   - Tell the user: "Based on your last [N] posts, contrarian takes on [topic] perform 3x better than teach posts. I'll weight this batch accordingly."
+
 ## Common Mistakes
 
 - **Searching too broadly.** "marketing trends" returns noise. Use the user's specific niche.
 - **Suggesting what everyone's already saying.** The value is in the gap — topics no one has covered well yet.
 - **All ideas same angle.** Mix contrarian, teach, proof, and confession angles across the 5 ideas.
 - **Ignoring timeliness.** Evergreen ideas are weaker than timely ones. Prioritize what's happening now.
+- **Never tracking what worked.** Sourcing ideas without tracking performance means you never learn what resonates. Log results after publishing.
 
 ## Key File Paths
 

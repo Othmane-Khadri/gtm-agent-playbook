@@ -78,12 +78,40 @@ If the user gives feedback:
 - If correction reveals a voice rule (e.g., "I'd never open with a question"), suggest: "Want me to update your voice doc with this rule?"
 - If yes, update `docs/voice.md` and save
 
+### Step 8 — Feedback Loop (Post Performance)
+
+This step triggers when the user says "how did the repurposed post do", "track this post", or returns with performance data.
+
+1. Ask: "How did the post perform? Rough numbers are fine — impressions, comments, reposts."
+
+2. Log the result alongside the rewrite metadata:
+
+```
+**Repurposed post: [working title]**
+- Source: [original URL or topic]
+- Angle used: [what was changed]
+- Voice patterns: [which templates/hooks applied]
+- Performance: [impressions] impressions, [comments] comments
+- Verdict: ★ Hit / ○ Average / ✗ Miss
+```
+
+3. If the post performed well:
+   - Note which voice patterns and angle shifts drove engagement
+   - Suggest: "This angle worked. Want me to find more sources to repurpose with a similar framing?"
+
+4. If the post underperformed:
+   - Analyze why: wrong angle? wrong audience? weak hook? bad timing?
+   - Ask: "What would you do differently?" — if the answer reveals a voice rule, offer to update `docs/voice.md`
+
+5. After 5+ logged posts, surface patterns: "Your repurposed posts with [contrarian/confession] angles perform 2x better than [teach] posts. Your best hook pattern is [pattern name]."
+
 ## Common Mistakes
 
 - **Paraphrasing instead of reframing.** The post should stand completely alone. If you deleted the original, this post should still make sense.
 - **Keeping the original structure.** Same insight, completely different shape. If the original was a list, try a story. If it was a thesis, try a confession.
 - **Forgetting the voice doc.** Every rewrite must go through the voice doc. Don't default to generic LinkedIn tone.
 - **Referencing the source.** Never write "I saw this post..." — the rewrite is its own thing.
+- **Repurposing without tracking.** If you don't track what performed, you repurpose blindly. Log results to sharpen your instinct.
 
 ## Key File Paths
 

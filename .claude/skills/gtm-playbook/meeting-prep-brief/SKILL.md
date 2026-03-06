@@ -121,12 +121,45 @@ Ask: "Want me to save this brief?"
 
 If yes, save to `docs/briefs/[company-slug]-[date].md`. Create directory if needed.
 
+### Step 7 — Feedback Loop (Post-Call Debrief)
+
+This step triggers when the user says "debrief the call", "how did the meeting go", "post-call notes", or returns after a meeting.
+
+1. Ask these 3 questions (one at a time):
+   - "What came up that you didn't expect? Any surprises?"
+   - "Which talking points landed? Which fell flat?"
+   - "What's the next step? (Follow-up call, proposal, dead, need more info)"
+
+2. Update the saved brief (if it exists in `docs/briefs/`) with a debrief section:
+
+```markdown
+## Post-Call Debrief — [date]
+
+**Outcome:** [Next step]
+**Surprises:** [What you didn't anticipate]
+**Talking points that worked:** [Which ones and why]
+**Talking points that didn't:** [Which ones and why]
+**New objections surfaced:** [Any not predicted]
+**Updated contact notes:** [Personality insights, communication preferences]
+```
+
+3. If a follow-up meeting is scheduled:
+   - Draft follow-up talking points based on what worked + what surfaced
+   - Update the objection table with any new objections
+   - Suggest: "Want me to update the brief for the next call?"
+
+4. If the deal is active, track cumulative context:
+   - Each debrief appends to the same brief file
+   - By meeting 3, you have a full history of what was discussed, what worked, and what to avoid
+   - Tell the user: "Your brief for [Company] now has [N] meetings logged. Each follow-up builds on the last."
+
 ## Common Mistakes
 
 - **Surface-level company research.** "They're a SaaS company" isn't useful. Dig for specifics: what product, what stage, what's changed recently.
 - **Skipping contact research.** The brief is dramatically more useful with contact profiles. Always research the people.
 - **Generic talking points.** "Discuss how we can help" isn't a talking point. Reference a specific signal and connect it to a specific angle.
 - **Too many objections.** 3 is enough. More than that overwhelms prep instead of focusing it.
+- **Prepping but never debriefing.** A brief without a debrief is a missed learning opportunity. Capture what happened after every call.
 
 ## Key File Paths
 

@@ -130,12 +130,42 @@ After user approves, save to `docs/voice.md`. Create `docs/` if it doesn't exist
 
 Tell the user: "Your voice doc is saved at `docs/voice.md`. The Daily Debrief, Idea Sourcer, and Post Repurposer reference this automatically."
 
+### Step 8 — Feedback Loop (Consistency Check)
+
+This step triggers when the user says "check my voice", "voice consistency", "am I drifting", or has written 5+ posts since creating the voice doc.
+
+1. Read the existing `docs/voice.md`
+2. Ask: "Paste your last 3-5 LinkedIn posts (the ones you actually published)."
+3. Analyze each post against the voice doc:
+   - **Tone match:** Does the casual-formal ratio hold?
+   - **Hook compliance:** Did they use one of their documented hook patterns?
+   - **Banned words:** Any violations?
+   - **Structure:** Did they follow a documented template?
+   - **Word count:** Within their range?
+4. Score each post as a percentage match (e.g., "Post 3: 72% — hook was on-brand, but tone drifted formal")
+5. Present a summary:
+
+```
+**Voice Consistency Report**
+- Post 1: [X]% match — [1-line note]
+- Post 2: [X]% match — [1-line note]
+- Post 3: [X]% match — [1-line note]
+
+**Patterns:** [What's consistent across all posts]
+**Drift:** [What's changed since the voice doc was created]
+**Recommendation:** [Update voice doc? Or course-correct posts?]
+```
+
+6. If drift is intentional (their voice evolved), offer to update `docs/voice.md` with the new patterns
+7. If drift is accidental, flag the specific violations to watch for
+
 ## Common Mistakes
 
 - **Analyzing too few samples.** 1-2 posts isn't enough to find patterns. Push for 3-5.
 - **Projecting a voice instead of extracting one.** The voice doc should match what they already write, not what sounds good.
 - **Ignoring formatting patterns.** Line breaks, spacing, and punctuation are part of voice. Don't just focus on word choice.
 - **Making the doc too long.** A voice doc someone won't re-read is useless. Keep each section concise.
+- **Never checking consistency.** A voice doc is worthless if nobody checks whether posts actually match it. Run the consistency check monthly.
 
 ## Key File Paths
 
