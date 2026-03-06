@@ -1,16 +1,15 @@
 ---
 name: icp-sharpener
-description: Use this skill when the user says "sharpen my ICP", "define my ICP", "who should I sell to", "refine my ideal customer", "ICP workshop", or any variant indicating they want to define or pressure-test their Ideal Customer Profile.
-version: 1.0.0
+description: Use when defining, validating, or pressure-testing an Ideal Customer Profile. Symptoms — selling to everyone, unclear disqualifiers, no scoring rubric, inconsistent lead quality, wasted outreach on bad-fit prospects.
 ---
 
 # ICP Sharpener
 
-Pressure-test your Ideal Customer Profile through a structured interview. Produces a machine-readable ICP document that other skills can reference.
+Pressure-test your Ideal Customer Profile through a structured 10-question interview. Produces a scored, machine-readable ICP document at `docs/icp.md` that other skills reference automatically.
 
 ## When This Skill Applies
 
-User says any variant of: "sharpen my ICP", "define my ICP", "who should I sell to", "refine my ideal customer", "ICP workshop", "help me figure out my target customer", or any request to define/validate their target market.
+User says: "sharpen my ICP", "define my ICP", "who should I sell to", "refine my ideal customer", "ICP workshop", "target customer profile", or any request to define/validate who they should be selling to.
 
 ## Workflow
 
@@ -24,7 +23,7 @@ Look for `docs/icp.md` in the project root.
 
 ### Step 2 — The Interview (10 Questions)
 
-Ask these questions **one at a time**. Wait for the answer before asking the next. Don't dump all 10 at once.
+Ask these questions **one at a time**. Wait for the answer before asking the next.
 
 **Customers you have:**
 1. "Name your 3 best customers. What do they have in common?"
@@ -48,21 +47,21 @@ Ask these questions **one at a time**. Wait for the answer before asking the nex
 
 ### Step 3 — Analyze Patterns
 
-After all answers are collected, analyze for:
+After all answers, analyze for:
 
-- **Segments:** Group the answers into 2-3 distinct customer profiles (by company stage, size, industry, or use case)
-- **Scoring dimensions:** Extract 4 scoring axes from their answers:
-  - **Fit** — how well the prospect matches the profile (industry, size, stage, tech stack)
-  - **Timing** — are they in a buying moment right now? (signals present)
+- **Segments:** 2-3 distinct customer profiles (by company stage, size, industry, or use case)
+- **Scoring dimensions:** 4 axes extracted from their answers:
+  - **Fit** — how well the prospect matches (industry, size, stage, tech stack)
+  - **Timing** — are they in a buying moment? (signals present)
   - **Access** — can you reach the decision maker? (title, company size, channels)
-  - **Intent** — are they actively looking or passively aware? (behavior signals)
-- **Signals:** List every buying trigger mentioned
-- **Disqualifiers:** List every red flag mentioned
+  - **Intent** — actively looking or passively aware? (behavior signals)
+- **Signals:** Every buying trigger mentioned
+- **Disqualifiers:** Every red flag mentioned
 - **Channels:** Where to find these people
 
 ### Step 4 — Present the ICP
 
-Present the ICP document to the user before saving. Format:
+Present the document before saving:
 
 ```markdown
 # ICP — [Company/Product Name]
@@ -80,7 +79,6 @@ Present the ICP document to the user before saving. Format:
 ### Fit (Does this company match?)
 - [criteria 1]
 - [criteria 2]
-- [criteria 3]
 
 ### Timing (Are they in a buying moment?)
 - [signal 1]
@@ -96,40 +94,42 @@ Present the ICP document to the user before saving. Format:
 
 ## Buying Signals
 - [signal]: [what it looks like in practice]
-- ...
 
 ## Disqualifiers
 - [red flag]: [why this kills the deal]
-- ...
 
 ## Where They Gather
 - [channel/community]: [what they do there]
-- ...
 
 ## Quick Scoring Rubric
 
 | Dimension | Strong (3) | Medium (2) | Weak (1) |
 |-----------|-----------|------------|----------|
-| Fit       | [description] | [description] | [description] |
-| Timing    | [description] | [description] | [description] |
-| Access    | [description] | [description] | [description] |
-| Intent    | [description] | [description] | [description] |
+| Fit       | ... | ... | ... |
+| Timing    | ... | ... | ... |
+| Access    | ... | ... | ... |
+| Intent    | ... | ... | ... |
 
-**Score 10-12:** Hot lead — act immediately
-**Score 7-9:** Warm lead — nurture and watch for timing signals
-**Score 4-6:** Cold lead — add to content audience, don't outreach yet
-**Score <4:** Not ICP — pass
+**10-12:** Hot — act immediately
+**7-9:** Warm — nurture, watch for timing signals
+**4-6:** Cold — content audience only
+**<4:** Not ICP — pass
 ```
 
-Ask the user: "Does this capture your ICP accurately? Anything to add or change?"
+Ask: "Does this capture your ICP accurately? Anything to add or change?"
 
 ### Step 5 — Save
 
-After user approves, save to `docs/icp.md` in the project root.
+After user approves, save to `docs/icp.md`. Create `docs/` if it doesn't exist.
 
-Create the `docs/` directory if it doesn't exist.
+Tell the user: "Your ICP is saved at `docs/icp.md`. The Idea Sourcer and Outreach Packager skills reference this automatically."
 
-Tell the user: "Your ICP is saved at `docs/icp.md`. Other skills (Idea Sourcer, Outreach Packager) will reference this automatically."
+## Common Mistakes
+
+- **Asking all 10 questions at once.** Users get overwhelmed and give shallow answers. One at a time.
+- **Accepting vague answers.** "SMBs" is not a segment. Push for specifics: "What size? What industry? What stage?"
+- **Skipping disqualifiers.** Knowing who NOT to sell to is as valuable as knowing who to target.
+- **Making the rubric too complex.** 4 dimensions, 3 levels each. That's it. Don't add more.
 
 ## Key File Paths
 

@@ -1,16 +1,15 @@
 ---
 name: linkedin-voice-builder
-description: Use this skill when the user says "build my LinkedIn voice", "define my writing style", "create my voice doc", "how should I write on LinkedIn", "LinkedIn voice", or any variant indicating they want to define their personal writing style for LinkedIn.
-version: 1.0.0
+description: Use when codifying a personal writing style for LinkedIn. Symptoms — posts sound generic, inconsistent tone across posts, can't articulate what makes your writing yours, new to LinkedIn writing and need a style guide.
 ---
 
 # LinkedIn Voice Builder
 
-Define your LinkedIn writing voice through analysis of your best posts + a voice discovery interview. Produces a structured voice document that other skills reference when writing for you.
+Analyze your best writing + run a 5-question voice discovery interview. Produces a structured voice document at `docs/voice.md` that other skills reference when writing for you.
 
 ## When This Skill Applies
 
-User says any variant of: "build my LinkedIn voice", "define my writing style", "create my voice doc", "LinkedIn voice", "how should I write", or any request to codify their personal writing style.
+User says: "build my LinkedIn voice", "define my writing style", "create my voice doc", "LinkedIn voice", "how should I write on LinkedIn", or any request to codify their personal writing style.
 
 ## Workflow
 
@@ -33,12 +32,12 @@ Wait for the samples. If URLs are provided, fetch them with WebFetch.
 Silently analyze the samples across these dimensions:
 
 - **Sentence length:** Average, range, and rhythm (short-short-long? staccato? flowing?)
-- **Vocabulary:** Simple/complex ratio, industry jargon level, signature words
+- **Vocabulary:** Simple/complex ratio, jargon level, signature words
 - **Hook patterns:** How do they open? (question, statement, number, story, contrarian)
-- **Structure:** How do they organize? (thesis→proof, story→lesson, list, problem→solution)
-- **Tone spectrum:** Where do they fall on casual↔formal and concrete↔abstract
-- **Closing style:** How do they end? (conviction, question, callback, mic drop)
-- **Formatting:** Line breaks, spacing, use of bold/italic, emojis or not
+- **Structure:** How do they organize? (thesis-proof, story-lesson, list, problem-solution)
+- **Tone spectrum:** casual-formal, concrete-abstract, personal-analytical
+- **Closing style:** conviction, question, callback, mic drop
+- **Formatting:** Line breaks, spacing, bold/italic, emojis or not
 
 ### Step 4 — Voice Discovery Interview
 
@@ -52,7 +51,7 @@ Ask these 5 questions **one at a time**:
 
 ### Step 5 — Present the Voice Doc
 
-Synthesize the analysis + interview into a voice document. Present it to the user before saving:
+Synthesize analysis + interview into this format. Present before saving:
 
 ```markdown
 # LinkedIn Voice — [Name]
@@ -69,13 +68,11 @@ Synthesize the analysis + interview into a voice document. Present it to the use
 
 | Dimension | Position | Notes |
 |-----------|----------|-------|
-| Casual ↔ Formal | [X]% casual | [evidence from samples] |
-| Concrete ↔ Abstract | [X]% concrete | [evidence from samples] |
-| Personal ↔ Analytical | [X]% personal | [evidence from samples] |
+| Casual - Formal | [X]% casual | [evidence from samples] |
+| Concrete - Abstract | [X]% concrete | [evidence] |
+| Personal - Analytical | [X]% personal | [evidence] |
 
 ## Hook Patterns
-
-Use these opener styles, derived from your best posts:
 
 1. **[Pattern name]** — [description + example from their posts]
 2. **[Pattern name]** — [description + example]
@@ -86,7 +83,6 @@ Use these opener styles, derived from your best posts:
 ### [Template 1 name]
 - Line 1: [role]
 - Lines 2-3: [role]
-- ...
 - Closing: [role]
 
 ### [Template 2 name]
@@ -94,13 +90,11 @@ Use these opener styles, derived from your best posts:
 
 ## Banned Words & Phrases
 
-Never use: [their list + any patterns from samples that feel generic]
+Never use: [their list + generic patterns from samples]
 
 ## Signature Phrases
 
-Words and turns of phrase that are distinctly yours:
 - "[phrase]" — used in [context]
-- ...
 
 ## Example: Good vs. Bad
 
@@ -117,7 +111,7 @@ Based on your samples: [min]-[max] words. Sweet spot: ~[avg] words.
 ## Formatting Rules
 
 - Line breaks: [their pattern]
-- Bold/italic: [their usage]
+- Bold/italic: [usage]
 - Emojis: [yes/no/sparingly]
 - Hashtags: [yes/no]
 ```
@@ -128,15 +122,20 @@ Ask: "Does this capture your voice? Anything feel off?"
 
 If the user corrects something:
 - Fix the voice doc immediately
-- If the correction reveals a general rule (e.g., "I never use em dashes"), add it to the Banned Words section
+- If the correction reveals a general rule (e.g., "I never use em dashes"), add it to Banned Words
 
 ### Step 7 — Save
 
-After user approves, save to `docs/voice.md` in the project root.
+After user approves, save to `docs/voice.md`. Create `docs/` if it doesn't exist.
 
-Create the `docs/` directory if it doesn't exist.
+Tell the user: "Your voice doc is saved at `docs/voice.md`. The Daily Debrief, Idea Sourcer, and Post Repurposer reference this automatically."
 
-Tell the user: "Your voice doc is saved at `docs/voice.md`. The Daily Debrief, Idea Sourcer, and Post Repurposer skills will reference this automatically when writing for you."
+## Common Mistakes
+
+- **Analyzing too few samples.** 1-2 posts isn't enough to find patterns. Push for 3-5.
+- **Projecting a voice instead of extracting one.** The voice doc should match what they already write, not what sounds good.
+- **Ignoring formatting patterns.** Line breaks, spacing, and punctuation are part of voice. Don't just focus on word choice.
+- **Making the doc too long.** A voice doc someone won't re-read is useless. Keep each section concise.
 
 ## Key File Paths
 

@@ -1,16 +1,15 @@
 ---
 name: meeting-prep-brief
-description: Use this skill when the user says "prep me for", "meeting prep for", "brief me on [company]", "I have a call with", "prepare for my meeting with", or any variant indicating they want a pre-meeting brief on a company or prospect.
-version: 1.0.0
+description: Use when preparing for a sales call, investor meeting, partnership discussion, or any meeting where you need company context, contact profiles, and talking points. Symptoms — going into calls cold, not knowing what the company does, no prepared questions.
 ---
 
 # Meeting Prep Brief
 
-One-page brief before any sales call. Company context, contact profiles, angles to use, objections to prepare for, and questions that show you did your homework.
+One-page brief before any meeting. Company context, contact profiles, talking points, objections to prepare for, and questions that show you did your homework. Requires web search (Claude Pro/Team plan or configured MCP).
 
 ## When This Skill Applies
 
-User says any variant of: "prep me for [company]", "meeting prep", "brief me on [company]", "I have a call with [person] at [company]", "prepare for my meeting", or any request for pre-meeting research.
+User says: "prep me for [company]", "meeting prep", "brief me on [company]", "I have a call with [person] at [company]", "prepare for my meeting", or any request for pre-meeting research.
 
 ## Workflow
 
@@ -19,51 +18,49 @@ User says any variant of: "prep me for [company]", "meeting prep", "brief me on 
 Extract from the user's message:
 - **Company name** (required)
 - **Contact name(s)** (optional but valuable)
-- **Meeting context** (optional): what it's about, where in the sales process, any prior history
+- **Meeting context** (optional): what it's about, sales stage, prior history
 
-If company name isn't clear, ask: "Which company is the meeting with? And who specifically — names help me dig deeper."
+If company isn't clear, ask: "Which company is the meeting with? And who specifically — names help me dig deeper."
 
 ### Step 2 — Research the Company
 
 Run 3-4 web searches:
 
-**Search 1 — Company overview:**
-`"[Company name]"` — what they do, size, stage, funding, key products
+**Search 1 — Overview:**
+`"[Company]"` — what they do, size, stage, funding, products
 
 **Search 2 — Recent news:**
-`"[Company name] [current year]"` — funding rounds, product launches, partnerships, leadership changes, press coverage
+`"[Company] [current year]"` — funding, launches, partnerships, leadership changes
 
 **Search 3 — Competitive landscape:**
-`"[Company name] vs OR alternative OR competitor"` — who they compete with, how they position themselves
+`"[Company] vs OR alternative OR competitor"` — positioning, competitors
 
-**Search 4 — Challenges/pain points:**
-`"[Company name] challenges OR problems OR hiring OR scaling"` — what they're struggling with
+**Search 4 — Challenges:**
+`"[Company] challenges OR problems OR hiring OR scaling"` — what they're struggling with
 
-From the results, build:
-- What the company does (1-2 sentences, specific — not a tagline)
+Build:
+- What the company does (1-2 sentences, specific)
 - Stage and size (employees, funding, revenue if public)
 - Recent news (3-5 bullets, most recent first)
-- Competitive landscape (who they compete with, how they differentiate)
+- Competitive landscape (who they compete with, differentiation)
 - Likely challenges (based on stage, industry, recent activity)
 
 ### Step 3 — Research the Contacts
 
-For each contact name provided, run 1-2 web searches:
+For each contact, run 1-2 web searches:
 
-`"[Person name] [Company name]"` — role, background, LinkedIn activity, talks, blog posts, podcast appearances, quotes
+`"[Person] [Company]"` — role, background, LinkedIn activity, talks, quotes
 
 Build per-contact:
-- Current role and likely responsibilities
+- Current role and responsibilities
 - Background (previous companies, career path)
 - Recent public activity (posts, talks, interviews)
-- Communication style guess (based on their public content — are they formal? data-driven? visionary?)
-- What they likely care about (based on role + company stage)
+- Communication style guess (formal? data-driven? visionary?)
+- What they likely care about (role + company stage)
 
-If no contact names provided, identify the likely decision maker based on company size and the user's product/service.
+No contact names? Identify the likely decision maker based on company size and product/service.
 
 ### Step 4 — Synthesize the Brief
-
-Compile everything into a one-page brief:
 
 ```markdown
 # Meeting Brief: [Company Name]
@@ -76,24 +73,24 @@ Compile everything into a one-page brief:
 - **Key product(s):** [main offerings]
 
 ## Recent Signals
-- [Most recent news — date] — [what happened and why it matters]
+- [Most recent — date] — [what happened + why it matters]
 - [Second item]
 - [Third item]
 
 ## Contact Profiles
 
-### [Contact Name] — [Title]
+### [Name] — [Title]
 - **Background:** [1-2 sentences on career path]
-- **Likely priorities:** [What they care about based on role]
-- **Recent activity:** [Any public posts, talks, quotes]
+- **Likely priorities:** [What they care about]
+- **Recent activity:** [Posts, talks, quotes]
 - **Style:** [Formal/casual, data-driven/visionary, etc.]
 
 ## Why Now
-[1-2 sentences on what makes this meeting timely — connect a recent signal to a likely pain point]
+[1-2 sentences connecting a recent signal to a likely pain point]
 
 ## 3 Talking Points
 
-1. **[Topic]** — [Why bring this up + what angle to take — 2 sentences]
+1. **[Topic]** — [Why bring this up + angle — 2 sentences]
 2. **[Topic]** — [Why + angle]
 3. **[Topic]** — [Why + angle]
 
@@ -101,34 +98,35 @@ Compile everything into a one-page brief:
 
 | Likely Objection | Why They'd Say It | Suggested Response |
 |-----------------|-------------------|-------------------|
-| "[Objection 1]" | [Context] | [How to handle it — 1-2 sentences] |
+| "[Objection 1]" | [Context] | [1-2 sentences] |
 | "[Objection 2]" | [Context] | [Response] |
 | "[Objection 3]" | [Context] | [Response] |
 
 ## Questions to Ask Them
 
-Smart questions that show you did your homework:
-
-1. [Question that references something specific about their company/situation]
-2. [Question about a challenge they likely face]
-3. [Question that opens a conversation about your value — without being salesy]
+1. [References something specific about their company]
+2. [About a challenge they likely face]
+3. [Opens conversation about your value — without being salesy]
 ```
 
 ### Step 5 — Present the Brief
 
-Display the brief inline.
+Display inline. Ask: "Anything to add? Any prior context with this company I should factor in?"
 
-Then ask: "Anything you'd add? Any prior context with this company I should factor in?"
-
-If the user provides additional context (e.g., "We had a demo last month" or "They're comparing us to X"), update the talking points and objections accordingly.
+If user provides additional context (e.g., "We had a demo last month"), update talking points and objections.
 
 ### Step 6 — Offer to Save
 
-Ask: "Want me to save this brief to a file?"
+Ask: "Want me to save this brief?"
 
-If yes, save to `docs/briefs/[company-name-slug]-[date].md`.
+If yes, save to `docs/briefs/[company-slug]-[date].md`. Create directory if needed.
 
-Create the directory if it doesn't exist.
+## Common Mistakes
+
+- **Surface-level company research.** "They're a SaaS company" isn't useful. Dig for specifics: what product, what stage, what's changed recently.
+- **Skipping contact research.** The brief is dramatically more useful with contact profiles. Always research the people.
+- **Generic talking points.** "Discuss how we can help" isn't a talking point. Reference a specific signal and connect it to a specific angle.
+- **Too many objections.** 3 is enough. More than that overwhelms prep instead of focusing it.
 
 ## Key File Paths
 

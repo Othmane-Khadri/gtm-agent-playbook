@@ -1,16 +1,15 @@
 ---
 name: linkedin-idea-sourcer
-description: Use this skill when the user says "source ideas", "find content ideas", "what should I write about", "content ideas for LinkedIn", "trending topics in my niche", or any variant indicating they want LinkedIn post ideas based on what's trending.
-version: 1.0.0
+description: Use when searching for LinkedIn content ideas, trending topics, or what to write about. Symptoms — blank page syndrome, out of content ideas, want to know what's getting traction in a niche, need inspiration for posts.
 ---
 
 # LinkedIn Idea Sourcer
 
-Find what's trending in your niche, analyze what's getting traction, and suggest 3-5 angles personalized to your voice. Never stare at a blank page again.
+Search what's trending in your niche, analyze what's getting traction, and suggest 5 angles personalized to your voice. Requires web search (Claude Pro/Team plan or configured MCP).
 
 ## When This Skill Applies
 
-User says any variant of: "source ideas", "find content ideas", "what should I write about", "LinkedIn ideas", "trending topics", "content inspiration", or any request for LinkedIn post ideas.
+User says: "source ideas", "find content ideas", "what should I write about", "LinkedIn ideas", "trending topics", "content inspiration", or any request for LinkedIn post ideas.
 
 ## Workflow
 
@@ -18,17 +17,17 @@ User says any variant of: "source ideas", "find content ideas", "what should I w
 
 Check for these files without mentioning them:
 
-1. `docs/icp.md` — for niche, audience, and industry context
-2. `docs/voice.md` — for matching angles to the user's style
+1. `docs/icp.md` — niche, audience, industry context
+2. `docs/voice.md` — angle matching to user's style
 
-- If both exist: use them to personalize searches and angle selection.
-- If only ICP exists: search with niche context, present angles generically.
-- If only voice exists: search broadly, match angles to voice.
-- If neither exists: ask one question in Step 2.
+- Both exist: personalize searches and angle selection
+- Only ICP: search with niche context, present angles generically
+- Only voice: search broadly, match angles to voice
+- Neither: ask one question in Step 2
 
 ### Step 2 — Establish Niche
 
-If `docs/icp.md` exists, extract the niche and audience from it. Skip this step.
+If `docs/icp.md` exists, extract the niche and audience. Skip this step.
 
 If not, ask: "What's your niche and who's your audience? (e.g., 'B2B SaaS founders doing outbound' or 'DevTools marketing for engineering leaders')"
 
@@ -36,24 +35,24 @@ If not, ask: "What's your niche and who's your audience? (e.g., 'B2B SaaS founde
 
 Run 4-5 web searches targeting different content surfaces:
 
-1. **LinkedIn trending:** Search for `"[niche] site:linkedin.com" [current month] [current year]` — find posts getting traction
-2. **Industry discourse:** Search for `"[niche] trends [current year]"` — find what practitioners are debating
-3. **Contrarian takes:** Search for `"[niche] overrated OR unpopular opinion OR hot take"` — find angles with tension
-4. **Recent shifts:** Search for `"[niche] changed OR new OR launched [current month]"` — find news hooks
-5. **Problems:** Search for `"[niche] struggling OR broken OR frustrating"` — find pain-point content
+1. **LinkedIn trending:** `"[niche] site:linkedin.com" [current month] [current year]`
+2. **Industry discourse:** `"[niche] trends [current year]"`
+3. **Contrarian takes:** `"[niche] overrated OR unpopular opinion OR hot take"`
+4. **Recent shifts:** `"[niche] changed OR new OR launched [current month]"`
+5. **Problems:** `"[niche] struggling OR broken OR frustrating"`
 
-For each search, scan the top 3-5 results. Note: what's being discussed, what's getting engagement, what gaps exist (topics people ask about but no one answers well).
+For each, scan the top 3-5 results. Note: what's discussed, what's getting engagement, what gaps exist.
 
 ### Step 4 — Analyze and Filter
 
-From all search results, identify 5-8 raw themes. Filter them through:
+From all results, identify 5-8 raw themes. Filter through:
 
 - **Relevance:** Does this matter to the user's audience?
-- **Timeliness:** Is this happening NOW or is it evergreen? Prefer timely.
-- **Tension:** Does this topic have a debate, a misconception, or a contrarian angle? Tension drives engagement.
+- **Timeliness:** Happening NOW, or evergreen? Prefer timely.
+- **Tension:** Is there a debate, misconception, or contrarian angle? Tension drives engagement.
 - **Uniqueness:** Is everyone already saying this, or is there a gap?
 
-Keep the top 5 that score highest on these criteria.
+Keep the top 5.
 
 ### Step 5 — Generate Ideas
 
@@ -64,28 +63,33 @@ For each of the 5 themes, produce an idea card:
 
 **Trending topic:** [What's happening — 1 sentence + source link if available]
 **Why it's hot:** [Why people care right now — 1 sentence]
-**Your angle:** [How YOU should talk about this, given your experience — 1-2 sentences]
-**Hook:** "[A specific opening line they could use]"
-**Structure:** [Suggested post structure: thesis, story+lesson, list, comparison, etc.]
+**Your angle:** [How YOU should talk about this — 1-2 sentences]
+**Hook:** "[A specific opening line]"
+**Structure:** [thesis, story+lesson, list, comparison, etc.]
 **Resonance:** High / Medium / Low
 ```
 
-Rules for generating ideas:
-- **"Your angle" is the key differentiator.** Don't suggest the same take everyone else has. Find the contrarian, personal, or practitioner angle.
-- If a voice doc exists, match the hook style to their patterns (e.g., if they favor questions, suggest a question hook)
-- If an ICP doc exists, tie the "why it's hot" to the audience's specific pain points
-- At least 2 out of 5 ideas should have a contrarian or surprising angle
-- No generic advice posts ("5 tips for X"). Every idea should have a specific point of view.
+Idea generation rules:
+- **"Your angle" is the key differentiator.** Don't suggest the same take everyone has. Find the contrarian, personal, or practitioner angle.
+- If voice doc exists, match hook style to their patterns
+- If ICP exists, tie "why it's hot" to the audience's pain points
+- At least 2 out of 5 must have a contrarian or surprising angle
+- No generic advice posts ("5 tips for X"). Every idea needs a specific point of view.
 
 ### Step 6 — Offer Next Steps
 
-Present all 5 ideas, then ask:
-
-"Want me to write any of these as a full post? Just say the number."
+Present all 5 ideas, then ask: "Want me to write any of these as a full post? Just say the number."
 
 If user picks one:
-- If `docs/voice.md` exists: write the post in their voice
-- If not: suggest running the Voice Builder skill first, or offer to write a generic version
+- `docs/voice.md` exists: write in their voice
+- No voice doc: suggest Voice Builder first, or write a generic version
+
+## Common Mistakes
+
+- **Searching too broadly.** "marketing trends" returns noise. Use the user's specific niche.
+- **Suggesting what everyone's already saying.** The value is in the gap — topics no one has covered well yet.
+- **All ideas same angle.** Mix contrarian, teach, proof, and confession angles across the 5 ideas.
+- **Ignoring timeliness.** Evergreen ideas are weaker than timely ones. Prioritize what's happening now.
 
 ## Key File Paths
 
