@@ -21,6 +21,7 @@ Each skill encodes a GTM methodology — not a prompt, a repeatable system that 
 Clone this repo into your project:
 
 ```bash
+mkdir -p .claude/skills
 git clone https://github.com/Othmane-Khadri/gtm-agent-playbook.git temp-playbook
 cp -r temp-playbook/.claude/skills/gtm-playbook .claude/skills/
 rm -rf temp-playbook
